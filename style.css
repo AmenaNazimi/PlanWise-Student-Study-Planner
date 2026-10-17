@@ -1,0 +1,463 @@
+
+/* ========================================
+   PlanWise - Student Study Planner
+   Professional Dashboard Design
+   ======================================== */
+
+:root {
+    --primary: #3478f6;
+    --primary-dark: #245ed1;
+    --primary-light: #eaf1ff;
+
+    --green: #18a875;
+    --green-light: #e6f8f0;
+
+    --purple: #8265e8;
+    --purple-light: #f0ebff;
+
+    --background: #f4f7fc;
+    --white: #ffffff;
+    --text: #24324a;
+    --muted: #718096;
+    --border: #e3eaf4;
+
+    --shadow: 0 8px 24px rgba(36, 61, 105, 0.08);
+}
+
+/* General page */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 32px 24px 50px;
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Main heading */
+
+h1 {
+    margin: 0;
+    text-align: center;
+    color: #1e3152;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+}
+
+h2 {
+    margin: 3px 0 8px;
+    text-align: center;
+    color: var(--primary);
+    font-size: 21px;
+    font-weight: 600;
+}
+
+body > p {
+    max-width: 600px;
+    margin: 0 auto 28px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* Dashboard */
+
+.dashboard {
+    width: 100%;
+    max-width: 1000px;
+    margin: 28px auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.dashboard-card {
+    position: relative;
+    min-width: 0;
+    padding: 25px 18px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--primary);
+}
+
+.dashboard-card:nth-child(2)::before {
+    background: var(--green);
+}
+
+.dashboard-card:nth-child(3)::before {
+    background: var(--purple);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(36, 61, 105, 0.13);
+}
+
+.dashboard-card h3 {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dashboard-card p {
+    margin: 10px 0 0;
+    color: var(--primary);
+    font-size: 35px;
+    line-height: 1.3;
+    font-weight: 800;
+}
+
+.dashboard-card:nth-child(2) p {
+    color: var(--green);
+}
+
+.dashboard-card:nth-child(3) p {
+    color: var(--purple);
+}
+
+/* Common section cards */
+
+.task-form,
+.progress-section,
+.schedule-section,
+.upcoming-section,
+.calendar-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+.task-form,
+.schedule-section,
+.upcoming-section,
+.calendar-section {
+    width: 100%;
+    max-width: 700px;
+    margin: 28px auto;
+    padding: 25px;
+}
+
+.task-form {
+    max-width: 480px;
+}
+
+.task-form h3,
+.progress-section h3,
+.schedule-section h3,
+.upcoming-section h3,
+.calendar-section h3 {
+    margin: 0 0 18px;
+    text-align: center;
+    color: var(--text);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Form fields */
+
+label {
+    display: block;
+    margin: 14px 0 6px;
+    color: #394b65;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #d8e1ef;
+    border-radius: 9px;
+    outline: none;
+    background: #fbfcff;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(52, 120, 246, 0.12);
+}
+
+/* Buttons */
+
+button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 9px;
+    background: var(--primary);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Task list */
+
+.task-list {
+    width: 100%;
+    max-width: 700px;
+    margin: 30px auto;
+}
+
+.task-list > h3 {
+    margin: 25px 0 12px;
+    color: var(--text);
+    text-align: center;
+    font-size: 21px;
+}
+
+.task {
+    margin-top: 16px;
+    padding: 21px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--primary);
+    border-radius: 14px;
+    box-shadow: 0 5px 16px rgba(36, 61, 105, 0.06);
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.task h4 {
+    margin: 0 0 12px;
+    color: #243b63;
+    font-size: 19px;
+}
+
+.task p {
+    margin: 7px 0;
+    color: var(--muted);
+    text-align: left;
+    font-size: 14px;
+}
+
+.task button {
+    display: inline-block;
+    width: auto;
+    margin: 12px 8px 0 0;
+    padding: 9px 15px;
+    font-size: 13px;
+}
+
+.task.completed {
+    border-left-color: var(--green);
+}
+
+.task.completed h4 {
+    color: #5d7187;
+}
+
+/* Study progress */
+
+.progress-section {
+    width: 100%;
+    margin: 0 auto 25px;
+    padding: 22px;
+    text-align: center;
+}
+
+.progress-section h3 {
+    margin-bottom: 8px;
+}
+
+.progress-section p {
+    margin: 0;
+    color: var(--primary);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Schedule and upcoming task cards */
+
+.schedule-item {
+    margin-top: 13px;
+    padding: 16px;
+    background: #f7f9fe;
+    border: 1px solid #e6edf8;
+    border-left: 4px solid var(--primary);
+    border-radius: 11px;
+    overflow-wrap: anywhere;
+}
+
+.schedule-item strong {
+    display: block;
+    margin-bottom: 7px;
+    color: #263c60;
+    font-size: 16px;
+}
+
+.schedule-item p {
+    margin: 5px 0;
+    color: var(--muted);
+    text-align: left;
+    font-size: 13px;
+}
+
+/* Calendar header */
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.calendar-header h4 {
+    margin: 0;
+    color: #263c60;
+    font-size: 17px;
+    text-align: center;
+}
+
+.calendar-header button {
+    width: auto;
+    min-width: 42px;
+    margin: 0;
+    padding: 7px 13px;
+    font-size: 18px;
+}
+
+/* Calendar grid */
+
+.calendar-weekdays,
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 7px;
+    margin-top: 16px;
+}
+
+.calendar-weekdays span {
+    padding: 6px 0;
+    color: var(--muted);
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.calendar-days div {
+    min-height: 40px;
+    padding: 7px 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f3f6fc;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    color: #34445e;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* Responsive design */
+
+@media (max-width: 700px) {
+    body {
+        padding: 24px 12px 35px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    .dashboard {
+        gap: 10px;
+    }
+
+    .dashboard-card {
+        padding: 20px 7px;
+        border-radius: 13px;
+    }
+
+    .dashboard-card h3 {
+        font-size: 11px;
+    }
+
+    .dashboard-card p {
+        font-size: 26px;
+    }
+
+    .task-form,
+    .schedule-section,
+    .upcoming-section,
+    .calendar-section {
+        padding: 17px;
+    }
+
+    .task {
+        padding: 16px;
+    }
+
+    .calendar-weekdays,
+    .calendar-days {
+        gap: 4px;
+    }
+
+    .calendar-days div {
+        min-height: 34px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .dashboard {
+        gap: 6px;
+    }
+
+    .dashboard-card {
+        padding: 16px 4px;
+    }
+
+    .dashboard-card h3 {
+        font-size: 10px;
+    }
+
+    .dashboard-card p {
+        font-size: 22px;
+    }
+}
+

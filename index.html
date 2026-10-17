@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanWise - Student Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>PlanWise</h1>
+    <h2>Student Study Planner</h2>
+    <p>Organize your study, manage your tasks, and stay on schedule.</p>
+
+    <div class="dashboard">
+        <div class="dashboard-card">
+            <h3>Total Tasks</h3>
+            <p id="totalTasks">0</p>
+        </div>
+        <div class="dashboard-card">
+            <h3>Completed</h3>
+            <p id="completedTasks">0</p>
+        </div>
+        <div class="dashboard-card">
+            <h3>Pending</h3>
+            <p id="pendingTasks">0</p>
+        </div>
+    </div>
+
+    <div class="schedule-section">
+        <h3>Study Schedule</h3>
+        <div id="scheduleContainer">
+            <p>No study tasks scheduled yet.</p>
+        </div>
+    </div>
+
+    <div class="upcoming-section">
+        <h3>Upcoming Tasks</h3>
+        <div id="upcomingContainer">
+            <p>No upcoming tasks yet.</p>
+        </div>
+    </div>
+
+    <div class="calendar-section">
+        <h3>Study Calendar</h3>
+        <div class="calendar-header">
+            <button type="button" onclick="previousMonth()">‹</button>
+            <h4 id="calendarMonth"></h4>
+            <button type="button" onclick="nextMonth()">›</button>
+        </div>
+
+        <div class="calendar-weekdays">
+            <span>Sun</span><span>Mon</span><span>Tue</span>
+            <span>Wed</span><span>Thu</span><span>Fri</span>
+            <span>Sat</span>
+        </div>
+        <div id="calendarDays" class="calendar-days"></div>
+    </div>
+
+    <div class="task-form">
+        <h3>Add New Study Task</h3>
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" placeholder="Enter subject">
+
+        <label for="deadline">Deadline</label>
+        <input type="date" id="deadline">
+
+        <label for="duration">Study Duration (hours)</label>
+        <input type="number" id="duration" min="0.5" step="0.5"
+               placeholder="Enter hours">
+
+        <label for="priority">Priority</label>
+        <select id="priority">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+        </select>
+
+        <button type="button" onclick="addTask()">Add Task</button>
+    </div>
+
+    <div class="task-list">
+        <div class="progress-section">
+            <h3>Study Progress</h3>
+            <p id="progressText">Progress: 0%</p>
+        </div>
+
+        <h3>My Study Tasks</h3>
+        <div id="taskContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
